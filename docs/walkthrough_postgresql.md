@@ -11,11 +11,11 @@ This guide is pretty much the same as for MySQL. Go read it first, and then come
   	run_sql2json [label="Run sql2json"];
   	i_only_have_sql_file [label="I only have an .sql file"];
   	Done [label="Done! Data exported as .json files :%29"];
-  	create_mysql_instance [label="Create database instance\n%28temporary, as Docker container%29"];
+  	create_mysql_instance [label="Create database instance%5Cn%28temporary, as Docker container%29"];
   	load_data_from_sql [label="Load .sql file into it"];
-	sql2json -> export_from_where;
-  	export_from_where -> run_sql2json [label="yes"];
-  	export_from_where -> i_only_have_sql_file [label="no"];
+  	sql2json -> export_from_where;
+  	export_from_where -> run_sql2json [label=" yes"];
+  	export_from_where -> i_only_have_sql_file [label=" no"];
   	i_only_have_sql_file -> create_mysql_instance -> load_data_from_sql -> run_sql2json;
   	run_sql2json -> Done;
   }
