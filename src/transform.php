@@ -28,7 +28,7 @@ class PostgresAdapter implements DbAdapter {
 }
 
 class MysqlAdapter implements DbAdapter {
-	// with MySQL we cannot use quotes
+	// with MySQL we cannot use quotes. backticks would probably work IIRC
 	public function selectSql($table) { return "SELECT * FROM $table"; }
 
 	public function listTables($conn) {

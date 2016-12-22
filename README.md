@@ -1,17 +1,19 @@
 What?
 =====
 
-You need to transform a database from another vendor to another (MySQL -> PostgreSQL), or to just access the dataset programmatically?
+You need to transform a database from another vendor to another (e.g. MySQL -> PostgreSQL), or to just access the dataset programmatically?
 
 Turns out that SQL - even though being a standard, is not that interoperable. You cannot take a SQL dump produced
 by say MySQL, and import it into SQLite or PostgreSQL. There are [clever hacks](https://gist.github.com/esperlu/943776),
 but you're going to get disappointed.
 
-Out of the frustration I created sql2json, that essentially dumps your database as JSON files, so the dataset is super
+Out of this frustration I created sql2json, that essentially dumps your database as JSON files, so the dataset is super
 easy to process (or import to another database) in any programming language! SQL is hard to parse while JSON is super trivial.
 
-sql2json is just a tool (Docker container) that exports a database (either a running DBMS) or .sql file (you run a
-temporary MySQL/PostgreSQL/so on instance with help of Docker) to JSON files - one per table.
+sql2json is just a tool (Docker container) that exports either:
+
+- a database (from a running DBMS) OR
+- .sql file (you run a temporary MySQL/PostgreSQL/.. instance with help of Docker) to JSON files - one per table.
 
 You get the best sense of what this tool does just by diving into the [MySQL export walkthrough](docs/walkthrough_mysql.md).
 
@@ -99,7 +101,7 @@ Or write ad-hoc one yourself (it isn't too hard in this case - sql2json intentio
 Thanks
 ======
 
-[Chinook example dataset](http://chinookdatabase.codeplex.com/): see `examples/` directory.
+[Chinook example dataset](http://chinookdatabase.codeplex.com/): see `example_dataset/` directory.
 (NOTE: I had to convert PostgreSQL's .sql file to utf-8)
 
 Todo
