@@ -4,7 +4,7 @@ Overview
 
 This guide is pretty much the same as for MySQL. Go read it first, and then come back! We'll only list here the stuff that's different.
 
-<img src='http://g.gravizo.com/g?
+![Graph](https://g.gravizo.com/g?
   digraph G {
   	sql2json [label="sql2json process"];
   	export_from_where [shape=doubleoctagon label="Do you have a running database instance?"];
@@ -19,7 +19,7 @@ This guide is pretty much the same as for MySQL. Go read it first, and then come
   	i_only_have_sql_file -> create_mysql_instance -> load_data_from_sql -> run_sql2json;
   	run_sql2json -> Done;
   }
-'>
+)
 
 
 I only have an .sql file

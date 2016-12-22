@@ -2,7 +2,7 @@
 Overview
 ========
 
-<img src='http://g.gravizo.com/g?
+![Graph](https://g.gravizo.com/g?
   digraph G {
   	sql2json [label="sql2json process"];
   	export_from_where [shape=doubleoctagon label="Do you have a running database instance?"];
@@ -17,7 +17,7 @@ Overview
   	i_only_have_sql_file -> create_mysql_instance -> load_data_from_sql -> run_sql2json;
   	run_sql2json -> Done;
   }
-'>
+)
 
 
 I only have an .sql file
