@@ -60,6 +60,12 @@ The end result is pretty nice, as from host perspective the only tool required i
 install MySQL/PostgreSQL if all you want is to load the .sql dump and transform it to JSON.
 Just remove the temporary DBMS and sql2json containers when you're done and your system is clean as ever. :)
 
+Demo
+====
+
+[![asciicast](https://asciinema.org/a/722yo4odqo1sulztyaeaxz4k1.png)](https://asciinema.org/a/722yo4odqo1sulztyaeaxz4k1)
+
+
 Walkthroughs
 ============
 
