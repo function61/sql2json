@@ -60,7 +60,7 @@ Now, let's load the data into that database:
 $ cat example_dataset/Chinook_MySql.sql.gz | gzip -d | docker exec -i sql2json-dbserver mysql <dbname>
 ```
 
-(note: you don't need the gzip part unless your .sql file gzipped)
+(note: you don't need the gzip part unless your .sql file is gzipped)
 
 You can verify that the data was loaded:
 

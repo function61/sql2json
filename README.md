@@ -114,4 +114,3 @@ Todo
 ====
 
 - Add ODBC support (should be easy to hack in, but I didn't have any ODBC database driver installed)
-- Advertise here: http://stackoverflow.com/questions/5036605/how-to-export-a-mysql-database-to-json
