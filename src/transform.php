@@ -145,13 +145,11 @@ function writeSchema($conn, $tables) {
 	info('Wrote /result/combined_schema.json');
 }
 
-function dumpTable($conn, $adapter, $table) {
-	info('Dumping ' . $table);
-
-	$query = $conn->query($adapter->selectSql($table));
+function dumpSql($conn, $sql, $filename) {
+	$query = $conn->query($sql);
 	$query->execute();
 
-	$json = new CompressingJsonStreamFileWriter('/result/data/' . $table . '.json.gz');
+	$json = new CompressingJsonStreamFileWriter($filename);
 	$json->writer->arrayBegin();
 
 	$rowCount = 0;
@@ -167,6 +165,12 @@ function dumpTable($conn, $adapter, $table) {
 	$json->close();
 
 	info('Wrote ' . $rowCount . ' rows to ' . $json->getPath());
+}
+
+function dumpTable($conn, $adapter, $table) {
+	info('Dumping ' . $table);
+
+	dumpSql($conn, $adapter->selectSql($table), '/result/data/' . $table . '.json.gz');
 }
 
 info($username !== '' ? 'Using username: ' . $username : 'Username: (no username)');
@@ -205,8 +209,19 @@ if ($adapter instanceof MysqlAdapter) {
 	info('Skipping schema fetch - only know how to do it for MySQL');
 }
 
-foreach($tables as $table) {
-	dumpTable($conn, $adapter, $table);
+$customSql = getenv('SQL');
+
+if ($customSql) {
+	info("Custom SQL statement specified: $customSql");
+
+	dumpSql($conn, $customSql, '/result/data/custom_' . time() . '.json.gz');
+}
+else {
+	foreach($tables as $table) {
+		dumpTable($conn, $adapter, $table);
+	}
+
+	info('Exported ' . count($tables) . ' tables');
 }
 
-info('Done, exported ' . count($tables) . ' tables');
+info('Done');
