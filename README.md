@@ -19,12 +19,22 @@ but you're going to get disappointed.
 Out of this frustration I created sql2json, that essentially dumps your database as JSON files, so the dataset is super
 easy to process (or import to another database) in any programming language! SQL is hard to parse while JSON is super trivial.
 
+
+Walkthroughs
+------------
+
+- [mysql](docs/walkthrough_mysql.md) (read this to get best sense of how this works)
+- [postgresql](docs/walkthrough_postgresql.md)
+- [sqlite](docs/walkthrough_sqlite.md)
+
+
+Architecture
+------------
+
 sql2json is just a tool (Docker container) that exports either:
 
 - a database (from a running DBMS) OR
 - .sql file (you run a temporary MySQL/PostgreSQL/.. instance with help of Docker) to JSON files - one per table.
-
-You get the best sense of what this tool does just by diving into the [MySQL export walkthrough](docs/walkthrough_mysql.md).
 
 Supported databases:
 
@@ -75,16 +85,14 @@ Demo
 [![asciicast](https://asciinema.org/a/722yo4odqo1sulztyaeaxz4k1.png)](https://asciinema.org/a/722yo4odqo1sulztyaeaxz4k1)
 
 
-Walkthroughs
-============
-
-- [mysql](docs/walkthrough_mysql.md)
-- [postgresql](docs/walkthrough_postgresql.md)
-- [sqlite](docs/walkthrough_sqlite.md)
-
-
 FAQ
 ---
+
+Q: Can I export only a subset of the data with a custom SQL query?
+
+A: Yes, [see this link for instructions](https://github.com/function61/sql2json/issues/1)!
+
+-----------
 
 Q: My database isn't supported
 
