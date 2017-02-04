@@ -1,7 +1,16 @@
-What?
-=====
+What can sql2json help you with?
+================================
 
-You need to transform a database from another vendor to another (e.g. MySQL -> PostgreSQL), or to just access the dataset programmatically?
+This project can help you if you need to:
+
+- Export data from a database into JSON so it can be transformed to some other format more easily. E.g. you need to transform
+  a database from another vendor to another (e.g. MySQL -> PostgreSQL). sql2json would help you get the data from MySQL into JSON
+  and after that you could write a program to insert the data into PostgreSQL. This project doesn't help you with the actual
+  transformation because it's not a trivial problem.
+
+- Just dump the database contents to JSON so the JSON can be accessed from any programming language.
+
+Why not just export SQL dump from vendor X and import the same file to vendor Y - SQL is standard anyways?
 
 Turns out that SQL - even though being a standard, is not that interoperable. You cannot take a SQL dump produced
 by say MySQL, and import it into SQLite or PostgreSQL. There are [clever hacks](https://gist.github.com/esperlu/943776),
